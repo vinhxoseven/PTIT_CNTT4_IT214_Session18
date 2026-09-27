@@ -1,0 +1,6 @@
+package com.rikkeibank.identity.aop;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.slf4j.*;
+import org.springframework.stereotype.Component;
+@Aspect @Component public class ServiceLoggingAspect { private static final Logger log=LoggerFactory.getLogger(ServiceLoggingAspect.class); @AfterThrowing(pointcut="execution(* com.rikkeibank.identity.service..*(..))",throwing="ex") public void error(JoinPoint jp,Throwable ex){log.error("Service error at {}: {}",jp.getSignature().toShortString(),ex.getMessage(),ex);} }

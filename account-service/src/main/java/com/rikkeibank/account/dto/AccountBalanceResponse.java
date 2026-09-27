@@ -1,0 +1,1 @@
+package com.rikkeibank.account.dto; import java.math.BigDecimal; public record AccountBalanceResponse(Long accountId,String accountNumber,BigDecimal balance){}

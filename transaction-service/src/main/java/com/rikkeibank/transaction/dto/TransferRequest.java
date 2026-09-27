@@ -1,0 +1,1 @@
+package com.rikkeibank.transaction.dto; import jakarta.validation.constraints.*; import java.math.BigDecimal; public record TransferRequest(@NotNull Long sourceAccountId,@NotNull Long targetAccountId,@NotNull @DecimalMin("0.01") BigDecimal amount){}

@@ -1,0 +1,20 @@
+server.port: 8085
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: notification-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+eureka.client.service-url.defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+app:
+  jwt.secret: ${JWT_SECRET:RikkeiBank-2026-Super-Secret-Key-Change-Me-At-Least-32-Bytes}
+  kafka:
+    transfer-completed-topic: transfer.completed
+    transfer-failed-topic: transfer.failed
+management.endpoints.web.exposure.include: health,info
+
+eureka.instance:
+  prefer-ip-address: true
+  instance-id: ${spring.application.name}:${random.value}

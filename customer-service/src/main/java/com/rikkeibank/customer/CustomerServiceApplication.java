@@ -1,0 +1,2 @@
+package com.rikkeibank.customer; import org.springframework.boot.*; import org.springframework.boot.autoconfigure.*; import org.springframework.cache.annotation.EnableCaching; import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+@SpringBootApplication @EnableCaching @EnableMethodSecurity public class CustomerServiceApplication{public static void main(String[] a){SpringApplication.run(CustomerServiceApplication.class,a);}}

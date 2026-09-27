@@ -1,0 +1,1 @@
+package com.rikkeibank.transaction.repository; import com.rikkeibank.transaction.model.TransactionEntry; import org.springframework.data.jpa.repository.JpaRepository; import java.util.List; public interface TransactionEntryRepository extends JpaRepository<TransactionEntry,Long>{List<TransactionEntry> findAllByTransactionIdOrderById(Long transactionId);}

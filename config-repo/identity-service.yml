@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: ${IDENTITY_DB_URL:jdbc:mysql://localhost:3307/identity_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${IDENTITY_DB_USER:root}
+    password: ${IDENTITY_DB_PASSWORD:root}
+  jpa:
+    hibernate.ddl-auto: update
+    open-in-view: false
+  data.redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+eureka.client.service-url.defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+app.jwt:
+  secret: ${JWT_SECRET:RikkeiBank-2026-Super-Secret-Key-Change-Me-At-Least-32-Bytes}
+  access-ttl-minutes: 15
+  refresh-ttl-days: 7
+management.endpoints.web.exposure.include: health,info
+
+eureka.instance:
+  prefer-ip-address: true
+  instance-id: ${spring.application.name}:${random.value}

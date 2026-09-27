@@ -1,0 +1,1 @@
+package com.rikkeibank.customer.dto; import jakarta.validation.constraints.*; public record CustomerRequest(@NotBlank String identityUsername,@NotBlank String fullName,@Email @NotBlank String email,String phone){}

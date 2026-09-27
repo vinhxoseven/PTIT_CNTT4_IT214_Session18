@@ -1,0 +1,1 @@
+package com.rikkeibank.account.repository; import com.rikkeibank.account.model.AccountOperation; import org.springframework.data.jpa.repository.JpaRepository; public interface AccountOperationRepository extends JpaRepository<AccountOperation,Long>{boolean existsByOperationIdAndOperationType(String operationId,String operationType);}

@@ -1,0 +1,36 @@
+server.port: 8084
+spring:
+  datasource:
+    url: ${TRANSACTION_DB_URL:jdbc:mysql://localhost:3310/transaction_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${TRANSACTION_DB_USER:root}
+    password: ${TRANSACTION_DB_PASSWORD:root}
+  jpa:
+    hibernate.ddl-auto: update
+    open-in-view: false
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+eureka.client.service-url.defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+app:
+  jwt.secret: ${JWT_SECRET:RikkeiBank-2026-Super-Secret-Key-Change-Me-At-Least-32-Bytes}
+  internal-key: ${INTERNAL_KEY:RikkeiBank-Internal-2026}
+  kafka:
+    transfer-completed-topic: transfer.completed
+    transfer-failed-topic: transfer.failed
+resilience4j.circuitbreaker:
+  instances:
+    accountService:
+      sliding-window-size: 5
+      minimum-number-of-calls: 3
+      failure-rate-threshold: 50
+      wait-duration-in-open-state: 10s
+      permitted-number-of-calls-in-half-open-state: 2
+management:
+  endpoints.web.exposure.include: health,info,circuitbreakers,circuitbreakerevents
+  health.circuitbreakers.enabled: true
+
+eureka.instance:
+  prefer-ip-address: true
+  instance-id: ${spring.application.name}:${random.value}

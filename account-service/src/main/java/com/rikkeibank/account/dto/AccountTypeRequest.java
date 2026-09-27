@@ -1,0 +1,1 @@
+package com.rikkeibank.account.dto; import jakarta.validation.constraints.NotBlank; public record AccountTypeRequest(@NotBlank String code,@NotBlank String name,String description){}

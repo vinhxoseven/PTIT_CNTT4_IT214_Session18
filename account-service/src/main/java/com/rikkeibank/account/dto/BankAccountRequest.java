@@ -1,0 +1,1 @@
+package com.rikkeibank.account.dto; import jakarta.validation.constraints.*; import java.math.BigDecimal; public record BankAccountRequest(@NotBlank String accountNumber,@NotBlank String ownerUsername,@NotNull Long accountTypeId,@NotNull @DecimalMin("0.00") BigDecimal openingBalance){}

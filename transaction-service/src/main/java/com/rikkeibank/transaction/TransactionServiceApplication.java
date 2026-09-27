@@ -1,0 +1,2 @@
+package com.rikkeibank.transaction; import org.springframework.boot.*; import org.springframework.boot.autoconfigure.*; import org.springframework.cloud.openfeign.EnableFeignClients; import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+@SpringBootApplication @EnableFeignClients @EnableMethodSecurity public class TransactionServiceApplication{public static void main(String[] a){SpringApplication.run(TransactionServiceApplication.class,a);}}

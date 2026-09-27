@@ -1,0 +1,1 @@
+package com.rikkeibank.transaction.dto; import java.math.BigDecimal; public record AccountOperationRequest(Long accountId,String ownerUsername,BigDecimal amount,String operationId){}

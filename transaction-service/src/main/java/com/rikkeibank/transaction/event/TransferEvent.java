@@ -1,0 +1,1 @@
+package com.rikkeibank.transaction.event; import java.math.BigDecimal; import java.time.Instant; public record TransferEvent(String eventType,Long transactionId,String operationId,Long sourceAccountId,Long targetAccountId,BigDecimal amount,String username,String message,Instant occurredAt){}

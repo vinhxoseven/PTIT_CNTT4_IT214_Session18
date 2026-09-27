@@ -1,0 +1,1 @@
+package com.rikkeibank.account.dto; import jakarta.validation.constraints.*; import java.math.BigDecimal; public record AccountOperationRequest(@NotNull Long accountId,String ownerUsername,@NotNull @DecimalMin("0.01") BigDecimal amount,@NotBlank String operationId){}
